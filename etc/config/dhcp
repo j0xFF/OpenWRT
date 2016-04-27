@@ -1,3 +1,7 @@
+###################################
+##         DNS MASQUERADE        ##
+###################################
+
 config dnsmasq
   option domainneeded           1
   option boguspriv              1
@@ -15,12 +19,15 @@ config dnsmasq
   option resolvfile             '/tmp/resolv.conf.auto'
   option localservice           1
 
+###################################
+##          DHCP CONFIG          ##
+###################################
+
 config dhcp lan
   option interface              LAN_1
 # option start                  100
 # option limit                  150
 # option leasetime              12h
-# option dhcpv6                 server
 # option ra                     server
   option ignore                 1
 
