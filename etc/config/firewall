@@ -1,0 +1,40 @@
+### default policy ###
+
+config defaults
+        option syn_flood        1
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          ACCEPT
+        option disable_ipv6     1
+
+### VLANs policy ###
+
+config zone
+        option name             LAN_ONO
+        list   network          'LAN_ONO'
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          ACCEPT
+
+config zone
+        option name             LAN_MV
+        list   network          'LAN_MV'
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          ACCEPT
+
+config zone
+        option name             WAN_DMZ
+        list   network          'WAN_DMZ'
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          ACCEPT
+        option masq             1
+        option mtu_fix          1
+
+### VLANs forwarding ###
+
+config forwarding
+        option src              LAN_ONO
+        option dest             WAN_DMZ
+        option mtu_fix          1
