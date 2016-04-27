@@ -3,43 +3,44 @@
 ###################################
 
 config dnsmasq
-  option domainneeded           1
-  option boguspriv              1
-  option filterwin2k            0
-  option localise_queries       1
-  option rebind_protection      1
-  option rebind_localhost       1
-  option local                  '/lan/'
-  option domain                 lan
-  option expandhosts            1
-  option nonegcache             0
-  option authoritative          1
-  option readethers             1
-  option leasefile              '/tmp/dhcp.leases'
-  option resolvfile             '/tmp/resolv.conf.auto'
-  option localservice           1
+    option domainneeded         1
+    option boguspriv            1
+    option filterwin2			0
+	option localise_querie		1
+	option rebind_protection	1
+	option rebind_localhos		1
+	option local				'/lan/'
+	option domai				lan
+	option expandhost			1
+	option nonegcach			0
+	option authoritative		1
+	option readether			1
+	option leasefile			'/tmp/dhcp.leases'
+	option resolvfil			'/tmp/resolv.conf.auto'
+	option localservic			1
 
 ###################################
 ##          DHCP CONFIG          ##
 ###################################
 
 config dhcp lan
-  option interface              LAN_1
-# option start                  100
-# option limit                  150
-# option leasetime              12h
-# option ra                     server
-  option ignore                 1
+	option interface			LAN_1
+#	option start				100
+#	option limit				150
+#	option leasetime			12h
+#	option ra					server
+	option ignor				1
 
 config dhcp lan2
-  option interface              LAN_2
-  option ignore                 1
+	option interface			LAN_2
+	option ignor				1
 
 config dhcp wan
-  option interface              WAN
-  option ignore                 1
+	option interface			WAN
+	option ignor				1
 
 config odhcpd odhcpd
-  option maindhcp               0
-  option leasefile              '/tmp/hosts/odhcpd'
-  option leasetrigger           '/usr/sbin/odhcpd-update'
+	option maindhc				0
+	option leasefile			'/tmp/hosts/odhcpd'
+	option leasetrigge			'/usr/sbin/odhcpd-update'
+	
