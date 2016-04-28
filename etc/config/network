@@ -20,25 +20,25 @@ config interface LAN_1
   option type             bridge
   option ifname           eth1.1
   option proto            static
-  option ipaddr           192.168.0.198
+  option ipaddr           192.168.0.1
   option netmask          255.255.255.0
   option peerdns          0
-  option dns              192.168.0.3
+  option dns              192.168.0.5
 
 config interface LAN_2
   option force_link       1
   option type             bridge
   option ifname           eth1.2
   option proto            static
-  option ipaddr           10.200.0.198
+  option ipaddr           192.168.1.1
   option netmask          255.255.255.0
   option peerdns          0
-  option dns              192.168.0.3
+  option dns              192.168.0.5
 
 config interface WAN
   option ifname           eth0
   option proto            static
-  option ipaddr           172.26.2.198
+  option ipaddr           10.90.90.10
   option netmask          255.255.255.0
 
 ###################################
