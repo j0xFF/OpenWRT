@@ -4,9 +4,9 @@
 
 config defaults
     option syn_flood            1
-    option input                ACCEPT
-    option output               ACCEPT
-    option forward              ACCEPT
+    option input                DROP
+    option output               DROP
+    option forward              DROP
     option disable_ipv6         1
 
 ###################################
@@ -18,21 +18,21 @@ config zone
     list   network          'LAN_1'
     option input            ACCEPT
     option output           ACCEPT
-    option forward          ACCEPT
+    option forward          DROP
 
 config zone
     option name             LAN_2
     list   network          'LAN_2'
     option input            ACCEPT
     option output           ACCEPT
-    option forward          ACCEPT
+    option forward          DROP
 
 config zone
     option name             WAN
     list   network          'WAN'
-    option input            ACCEPT
+    option input            DROP
     option output           ACCEPT
-    option forward          ACCEPT
+    option forward          DROP
     option masq             1
     option mtu_fix          1
 
@@ -43,32 +43,18 @@ config zone
 config forwarding
     option src              LAN_1
     option dest             WAN
-    option mtu_fix          1
 
 config forwarding
     option src              LAN_1
     option dest             LAN_2
-    option mtu_fix          1
 
 config forwarding
     option src              LAN_2
     option dest             WAN
-    option mtu_fix          1
 
 config forwarding
     option src              LAN_2
     option dest             LAN_1
-    option mtu_fix          1
-
-config forwarding
-    option src              WAN
-    option dest             LAN_1
-    option mtu_fix          1
-
-config forwarding
-    option src              WAN
-    option dest             LAN_2
-    option mtu_fix          1
 
 ###################################
 ##      CUSTOM OPENWRT RULE      ##
