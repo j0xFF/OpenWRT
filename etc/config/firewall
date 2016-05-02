@@ -3,123 +3,123 @@
 ###################################
 
 config defaults
-    option syn_flood            1
-    option input                DROP
-    option output               DROP
-    option forward              DROP
-    option disable_ipv6         1
+        option syn_flood        1
+        option input            DROP
+        option output           DROP
+        option forward          DROP
+        option disable_ipv6     1
 
 ###################################
 ##          VLAN POLICY          ##
 ###################################
 
 config zone
-    option name             LAN_1
-    list   network          'LAN_1'
-    option input            ACCEPT
-    option output           ACCEPT
-    option forward          DROP
+        option name             LAN_1
+        list   network          'LAN_1'
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          DROP
 
 config zone
-    option name             LAN_2
-    list   network          'LAN_2'
-    option input            ACCEPT
-    option output           ACCEPT
-    option forward          DROP
+        option name             LAN_2
+        list   network          'LAN_2'
+        option input            ACCEPT
+        option output           ACCEPT
+        option forward          DROP
 
 config zone
-    option name             WAN
-    list   network          'WAN'
-    option input            DROP
-    option output           ACCEPT
-    option forward          DROP
-    option masq             1
-    option mtu_fix          1
+        option name             WAN
+        list   network          'WAN'
+        option input            DROP
+        option output           ACCEPT
+        option forward          DROP
+        option masq             1
+        option mtu_fix          1
 
 ###################################
 ##       VLAN FORWARDING         ##
 ###################################
 
 config forwarding
-    option src              LAN_1
-    option dest             WAN
+        option src              LAN_1
+        option dest             WAN
 
 config forwarding
-    option src              LAN_1
-    option dest             LAN_2
+        option src              LAN_1
+        option dest             LAN_2
 
 config forwarding
-    option src              LAN_2
-    option dest             WAN
+        option src              LAN_2
+        option dest             WAN
 
 config forwarding
-    option src              LAN_2
-    option dest             LAN_1
+        option src              LAN_2
+        option dest             LAN_1
 
 ###################################
 ##      CUSTOM OPENWRT RULE      ##
 ###################################
 
 config rule
-    option name             Allow-DHCP-Renew
-    option src              WAN_DMZ
-    option proto            udp
-    option dest_port        68
-    option target           ACCEPT
-    option family           ipv4
+        option name             Allow-DHCP-Renew
+        option src              WAN_DMZ
+        option proto            udp
+        option dest_port        68
+        option target           ACCEPT
+        option family           ipv4
 
 ###################################
 ##         CUSTOM RULES          ##
 ###################################
 
 config rule
-    option name             Allow-Ping
-    option src              LAN_1
-    option proto            icmp
-    option icmp_type        echo-request
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-Ping
+        option src              LAN_1
+        option proto            icmp
+        option icmp_type        echo-request
+        option family           ipv4
+        option target           ACCEPT
 
 config rule
-    option name             Allow-Ping
-    option src              LAN_2
-    option proto            icmp
-    option icmp_type        echo-request
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-Ping
+        option src              LAN_2
+        option proto            icmp
+        option icmp_type        echo-request
+        option family           ipv4
+        option target           ACCEPT
 
 config rule
-    option name             Allow-Ping
-    option src              WAN
-    option proto            icmp
-    option icmp_type        echo-request
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-Ping
+        option src              WAN
+        option proto            icmp
+        option icmp_type        echo-request
+        option family           ipv4
+        option target           ACCEPT
 
 config rule
-    option name             Allow-IGMP
-    option src              LAN_1
-    option proto            igmp
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-IGMP
+        option src              LAN_1
+        option proto            igmp
+        option family           ipv4
+        option target           ACCEPT
 
 config rule
-    option name             Allow-IGMP
-    option src              LAN_2
-    option proto            igmp
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-IGMP
+        option src              LAN_2
+        option proto            igmp
+        option family           ipv4
+        option target           ACCEPT
 
 config rule
-    option name             Allow-IGMP
-    option src              WAN
-    option proto            igmp
-    option family           ipv4
-    option target           ACCEPT
+        option name             Allow-IGMP
+        option src              WAN
+        option proto            igmp
+        option family           ipv4
+        option target           ACCEPT
 
 ###################################
 ##       CUSTOM IPTABLES         ##
 ###################################
 
 config include
-    option path /etc/firewall.user
+        option path /etc/firewall.user
