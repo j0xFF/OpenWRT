@@ -24,22 +24,22 @@ config dnsmasq
 ###################################
 
 config dhcp lan
-	option interface			LAN_1
-#	option start				100
-#	option limit				150
-#	option leasetime			12h
-#	option ra				server
-	option ignore				1
+	option interface		LAN_1
+#	option start			100
+#	option limit			150
+#	option leasetime		12h
+#	option ra			server
+	option ignore			1
 
 config dhcp lan2
-	option interface			LAN_2
-	option ignore				1
+	option interface		LAN_2
+	option ignore			1
 
 config dhcp wan
-	option interface			WAN
-	option ignore				1
+	option interface		WAN
+	option ignore			1
 
 config odhcpd odhcpd
-	option maindhcp				0
-	option leasefile			'/tmp/hosts/odhcpd'
-	option leasetrigger			'/usr/sbin/odhcpd-update'
+	option maindhcp			0
+	option leasefile		'/tmp/hosts/odhcpd'
+	option leasetrigger		'/usr/sbin/odhcpd-update'
